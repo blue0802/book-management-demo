@@ -1,10 +1,11 @@
 {
-  "name": "lession-25",
+  "name": "book-management-demo",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node index.js",
+    "dev": "nodemon --inspect index.js"
   },
   "author": "",
   "license": "ISC",
@@ -15,7 +16,6 @@
     "cookie-parser": "^1.4.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "lowdb": "^1.0.0",
     "mongoose": "^5.9.27",
     "multer": "^1.4.2",
     "nodemon": "^2.0.4",
