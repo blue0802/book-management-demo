@@ -1,0 +1,18 @@
+extends ../index
+
+block main
+    .container.container-sm
+        h1.mt-5 Add a new book to library
+        if err
+            .alert.alert-danger= err
+        form.mt-5.mb-5(action="", method="POST")
+            .form-group
+                label(for='title') Title
+                input#title.form-control(type='text', name="title", value= value ? value.title : "", required)
+            .form-group
+                label(for='author') Author
+                input#author.form-control(type='text', name="author", value= value ? value.author : "", required)
+            .form-group
+                label(for='description') Description
+                textarea#description.form-control(name="description", cols="30", rows="10")= value= value ? value.description : ""
+            button.btn.btn-primary(type='submit') Create

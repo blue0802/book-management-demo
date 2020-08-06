@@ -1,0 +1,22 @@
+extends ../index
+
+block main
+    .container.container-sm
+        h1.mt-5 Create A New Account
+        if err
+            .alert.alert-danger= err
+        form.mt-5(action="", method="POST")
+            .form-group
+                label(for='email') Email address
+                input#email.form-control(type='email', name="email", required, aria-describedby='emailHelp', value= value ? value.email : "")
+                small#emailHelp.form-text.text-muted We&apos;ll never share your email with anyone else.
+            .form-group
+                label(for='username') Username
+                input#username.form-control(type='text', name="username", value= value ? value.username : "", required)
+            .form-group
+                label(for='password') Password
+                input#password.form-control(type='password', name="password", value= value ? value.password : "", required)
+            .form-group.form-check
+                input#exampleCheck1.form-check-input(type='checkbox', required)
+                label.form-check-label(for='exampleCheck1') I accept the Terms of Service and have read the Services Privacy Policy
+            button.btn.btn-primary(type='submit') Create Account

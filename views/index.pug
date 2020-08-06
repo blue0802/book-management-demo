@@ -1,0 +1,38 @@
+extends ./layout/common
+
+block navigation bar
+    nav.navbar.navbar-expand.navbar-dark.bg-dark
+        a.navbar-brand(href='#')
+            img.d-inline-block.align-top(src='/img/logo.png', width='30', height='30', alt='', loading='lazy')
+            |     CodersX
+        ul.navbar-nav.flex-grow-1
+            li.nav-item.active
+                a.nav-link(href='/')
+                    | Home 
+                    span.sr-only (current)
+            if user
+                if user.isAdmin
+                    li.nav-item
+                        a.nav-link(href='/users') Users
+            li.nav-item
+                a.nav-link(href='/books') Books
+            li.nav-item
+                a.nav-link(href='/transactions') Transactions
+            if !user
+                li.nav-item
+                    a.nav-link(href='/auth/login') Login
+            if user   
+                li.nav-item
+                    form.m-0(action="/auth/logout", method="POST")
+                        button.btn.nav-link.border-0(type="submit", href='auth/logout') Logout
+        a(href="/transactions/rents").btn.btn-success.mr-3
+            | Rent
+        a(href="#").btn.btn-success.mr-3
+            | Cart 
+            if cart    
+                span.badge.badge-light=cart.total
+            span.sr-only unread messages
+        if user
+            .m-0
+                a.text-light(href="/profile")= user.username
+

@@ -1,0 +1,24 @@
+extends ../index
+
+block main
+    .container.container-sm.text-light
+        h1.mt-5 User's information
+        .mt-5
+            img(src=book.coverUrl, alt="", width=100)
+        dl.row.mt-5
+            dt.col-sm-3 Title
+            dt.col-sm-3 Author
+            dt.col-sm-6 Description
+        hr
+        dl.row.mt-3
+            dt.col-sm-3=book.title
+            dt.col-sm-3=book.author
+            dt.col-sm-6=book.description
+        if user
+            if user.isAdmin
+                .d-flex.mt-5
+                    a.btn.btn-primary.mr-3(href="/books/" + book.id + "/update") Update
+                    a.btn.btn-danger(href="/books/" + book.id + "/delete") Delete
+        else
+            .d-flex.mt-5
+                a.btn.btn-success(href="/transactions/" + book.id + "/rent") Rent

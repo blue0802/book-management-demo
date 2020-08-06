@@ -1,0 +1,15 @@
+extends ../index
+
+block main
+    .container.container-sm
+        .row-sm
+            .media.mt-5
+                img.mr-5.rounded-circle(src=user.avatarUrl, width=128, alt='')
+                .media-body
+                    p.mt-0 Username: 
+                        strong=user.username
+                    p.mt-0 Email: 
+                        strong=user.email
+                    p.mt-0 Phone: 
+                        strong=user.phone
+                    a.btn.btn-primary.mt-3(href="/profile/update") Modify                    

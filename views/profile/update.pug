@@ -1,0 +1,26 @@
+extends ../index
+
+block main
+    .container.container-sm
+        .row.mt-5
+            .media.col-sm-2
+                img.mr-5.rounded-circle(src=user.avatarUrl, width=128, alt='')
+            form.col-sm-10(action="", method="POST", enctype="multipart/form-data")
+                .form-group.row-sm
+                    label.col-sm-3(for='avatar') Example file input
+                    .col-sm-9    
+                        input#avatar.form-control-file(type='file', name="avatar")
+                .form-group.row
+                    label.col-sm-3(for='staticEmail') Email address
+                    .col-sm-9    
+                        input#staticEmail.form-control-plaintext(type='text', name="email", value= user.email, readonly)
+                .form-group.row
+                    label.col-sm-3(for='username') Username
+                    .col-sm-9
+                        input#username.form-control(type='text', name="username", value= user.username)
+                .form-group.row
+                    label.col-sm-3(for='phone') Phone
+                    .col-sm-9
+                        input#phone.form-control(type='number', name="phone", value= user.phone)
+                button.btn.btn-primary.mt-3(type='submit') Update
+                   

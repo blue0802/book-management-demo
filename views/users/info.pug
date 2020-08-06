@@ -1,0 +1,14 @@
+extends ../index
+
+block main
+    .container.container-sm
+        h1.mt-5 User's information
+        dl.row.mt-5
+            dd.col-sm-3 Username
+            dt.col-sm-6 Email
+            dt.col-sm-3 Phone
+        hr
+        dl.row.mt-3
+            dd.col-sm-3=acc.username
+            dt.col-sm-6=acc.email
+            dt.col-sm-3=acc.phone

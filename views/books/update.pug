@@ -1,0 +1,20 @@
+extends ../index
+
+block main
+    .container.container-sm
+        h1.mt-5 Update book's information
+        form.mt-5.mb-5(action="", method="POST", enctype="multipart/form-data")
+            .form-group.row-sm
+                label.col-sm-3(for='cover') Example file input
+                .col-sm-9    
+                    input#cover.form-control-file(type='file', name="cover")
+            .form-group
+                label(for='title') Title
+                input#title.form-control(type='text', name="title", value= value.title, required)
+            .form-group
+                label(for='author') Author
+                input#author.form-control(type='text', name="author", value= value.author, required)
+            .form-group
+                label(for='description') Description
+                textarea#description.form-control(name="description", cols="30", rows="10")= value= value.description
+            button.btn.btn-primary(type='submit') Update

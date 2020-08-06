@@ -1,0 +1,26 @@
+extends ../index
+
+block main
+    .container.container-sm
+        .row.mt-5
+            h1 Transactions
+            table.table.table-md.mt-5
+                thead
+                    tr
+                        th(scope='col') Account
+                        th(scope='col') Book
+                        th(scope='col') Status
+                tbody
+                    each transaction in transactions
+                        tr
+                            td.text-light= transaction.account
+                            td.text-light= transaction.book
+                            if user.isAdmin
+                                td  
+                                    if transaction.isComplete
+                                        a.btn.btn-success(href="/transactions/" + transaction.id + "/incomplete") complete
+                                    else
+                                        a.btn.btn-warning(href="/transactions/" + transaction.id + "/complete") incomplete
+                            else
+                                td
+                                    strong.text-danger= transaction.isComplete ? "complete" : "incomplete"

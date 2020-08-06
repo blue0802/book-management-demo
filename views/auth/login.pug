@@ -1,0 +1,17 @@
+extends ../index
+
+block main
+    .container.container-sm
+        h1.mt-5 Log In
+        if err
+            .alert.alert-danger= err
+        form.mt-5(action="", method="POST")
+            .form-group
+                label(for='username') Username
+                input#username.form-control(type='text', name="username", value= value ? value.username : "", required)
+            .form-group
+                label(for='password') Password
+                input#password.form-control(type='password', name="password", value= value ? value.password : "", required)
+            button.btn.btn-primary(type='submit') LogIn
+            p.mt-3 Don't have an account?
+                        a.ml-1(href="/auth/signup") Sign up 
