@@ -13,8 +13,8 @@ block main
                 tbody
                     each transaction in transactions
                         tr
-                            td.text-light= transaction.account
-                            td.text-light= transaction.book
+                            td= transaction.account
+                            td= transaction.book
                             if user.isAdmin
                                 td  
                                     if transaction.isComplete
