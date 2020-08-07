@@ -1,4 +1,3 @@
-const db = require('../common/db')
 const cloudinary = require('cloudinary').v2
 const User = require('../model/user.model')
 

@@ -1,4 +1,3 @@
-const db = require('../common/db')
 const shortid = require('shortid')
 const User = require('../model/user.model')
 const Book = require('../model/book.model')

@@ -1,4 +1,3 @@
-const db = require('../common/db')
 const shortid = require('shortid')
 const bcrypt = require('bcrypt')
 const mongoose = require('mongoose')
