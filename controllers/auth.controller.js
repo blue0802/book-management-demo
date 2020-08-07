@@ -23,7 +23,7 @@ module.exports = {
         res.render('auth/signup')
     },
     signupPost: async (req, res) => {
-        req.body.avatarUrl = '/uploads/avatar-default.png'
+        req.body.avatarUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTQ54_qQoxzPXCW6eg0OwCICuJTRwHfecVQlQ&usqp=CAU'
         bcrypt.hash(req.body.password, saltRound)
             .then(hash => {
                 req.body.password = hash
