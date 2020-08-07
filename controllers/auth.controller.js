@@ -23,7 +23,7 @@ module.exports = {
         res.render('auth/signup')
     },
     signupPost: async (req, res) => {
-        req.body.avatarUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcTQ54_qQoxzPXCW6eg0OwCICuJTRwHfecVQlQ&usqp=CAU'
+        req.body.avatarUrl = 'https://cdn1.iconfinder.com/data/icons/ninja-things-1/720/ninja-background-512.png'
         bcrypt.hash(req.body.password, saltRound)
             .then(hash => {
                 req.body.password = hash
