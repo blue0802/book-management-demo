@@ -3,6 +3,7 @@ const mongoose = require('mongoose')
 const transactionSchema = new mongoose.Schema({
     account: String,
     book: String,
+    shopId: String,
     isComplete: Boolean
 })
 

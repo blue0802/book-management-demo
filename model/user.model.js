@@ -6,7 +6,8 @@ const userSchema = new mongoose.Schema({
     password: String,
     phone: String,
     avatarUrl: String,
-    isAdmin: Boolean
+    isAdmin: Boolean,
+    shopId: String
 })
 
 const User = mongoose.model('User', userSchema)

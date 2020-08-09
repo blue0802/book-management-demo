@@ -14,10 +14,17 @@ block navigation bar
                 if user.isAdmin
                     li.nav-item
                         a.nav-link(href='/users') Users
+                if !user.isAdmin    
+                    li.nav-item
+                        a.nav-link(href='/shops') Shop
             li.nav-item
                 a.nav-link(href='/books') Books
             li.nav-item
-                a.nav-link(href='/transactions') Transactions
+                if user
+                    if user.isAdmin
+                        a.nav-link(href='/transactions') Transactions
+                    else
+                        a.nav-link(href='/transactions/' + user.id) Transactions
             if !user
                 li.nav-item
                     a.nav-link(href='/auth/login') Login

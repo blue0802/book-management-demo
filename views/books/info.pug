@@ -15,10 +15,10 @@ block main
             dt.col-sm-3=book.author
             dt.col-sm-6=book.description
         if user
-            if user.isAdmin
+            if user.shopId == book.shopId
                 .d-flex.mt-5
-                    a.btn.btn-primary.mr-3(href="/books/" + book.id + "/update") Update
-                    a.btn.btn-danger(href="/books/" + book.id + "/delete") Delete
-        else
-            .d-flex.mt-5
-                a.btn.btn-success(href="/transactions/" + book.id + "/rent") Rent
+                    a.btn.btn-primary.mr-3(href="/shops/" + user.id + "/books/" + book.id + "/update") Update
+                    a.btn.btn-danger(href="/shops/" + user.id + "/books/" + book.id + "/delete") Delete
+            else
+                .d-flex.mt-5
+                    a.btn.btn-success(href="/transactions/" + book.id + "/rent") Rent

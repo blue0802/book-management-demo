@@ -26,7 +26,6 @@ module.exports = {
           await Session.updateOne({ _id: sessionId }, { cart: book})
         }
         session = await Session.findById(sessionId)
-        console.log(session.cart)
 
         let total = 0;
         for(item in session.cart) {

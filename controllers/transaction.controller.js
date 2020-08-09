@@ -1,4 +1,3 @@
-const shortid = require('shortid')
 const User = require('../model/user.model')
 const Book = require('../model/book.model')
 const Transaction = require('../model/transaction.model')
@@ -11,13 +10,21 @@ module.exports = {
             transactions: transactions 
         })
     },
+    listOfShop: async (req, res) => {
+        let user = await User.findById(req.params.idUser)
+        let transactions = await Transaction.find({ shopId: user.shopId })
+        res.render('transactions/list', {
+            transactions: transactions 
+        })
+    },
     rent: async (req, res) => {
-        let account = User.findById({ _id: req.signedCookies.userId })
-        let book = Book.findById({ _id: req.params.id })
+        let account = await User.findById(req.signedCookies.userId)
+        let book = await Book.findById(req.params.id)
 
         let transaction = new Transaction({
             account: account.username,
             book: book.title,
+            shopId: book.shopId,
             isComplete: false
         })
         transaction.save()
@@ -44,6 +51,7 @@ module.exports = {
                 let transaction = new Transaction({
                     account: account.username,
                     book: book.title,
+                    shopId: book.shopId,
                     isComplete: false
                 })
                 

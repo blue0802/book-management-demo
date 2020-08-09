@@ -1,0 +1,10 @@
+extends ../index
+
+block main
+    .container.container-sm
+        if !user.shopId
+            form.mt-5.mb-5(action="/shops/" + user.id, method="POST")
+                button.btn.btn-primary(type='submit') Create My Shop
+        else
+            div.mt-5.mb-5
+                a.btn.btn-success(href="/shops/" + user.id + "/books") Go To My Shop

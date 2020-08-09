@@ -15,7 +15,7 @@ block main
                         tr
                             td= transaction.account
                             td= transaction.book
-                            if user.isAdmin
+                            if user.shopId == transaction.shopId
                                 td  
                                     if transaction.isComplete
                                         a.btn.btn-success(href="/transactions/" + transaction.id + "/incomplete") complete

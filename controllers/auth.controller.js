@@ -28,6 +28,7 @@ module.exports = {
             .then(hash => {
                 req.body.password = hash
                 let user = new User(req.body)
+                user.shopId = ''
                 user.save()
                             
                 res.redirect('/auth/login')
